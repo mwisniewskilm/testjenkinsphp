@@ -4,8 +4,6 @@ pipeline {
         stage('Preparation') {
             steps {
                 sh 'echo "TEST PREPARATION"'
-                sh 'curl -sS https://getcomposer.org/installer | php' // Install Composer locally
-                sh 'mv composer.phar /usr/local/bin/composer' // Move Composer to global bin
                 sh 'composer install' // Install dependencies
             }
         }
@@ -29,18 +27,18 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            recordIssues([
-                sourceCodeEncoding: 'UTF-8',
-                enabledForFailure: true,
-                aggregatingResults: true,
-                blameDisabled: true,
-                referenceJobName: "testjenkinsphp/main",
-                tools: [
-                    phpStan(id: 'phpstan', name: 'PHPStan', pattern: 'logs/phpstan.checkstyle.xml', reportEncoding: 'UTF-8')
-                ]
-            ])
-        }
-    }
+    // post {
+    //     always {
+    //         recordIssues([
+    //             sourceCodeEncoding: 'UTF-8',
+    //             enabledForFailure: true,
+    //             aggregatingResults: true,
+    //             blameDisabled: true,
+    //             referenceJobName: "testjenkinsphp/main",
+    //             tools: [
+    //                 phpStan(id: 'phpstan', name: 'PHPStan', pattern: 'logs/phpstan.checkstyle.xml', reportEncoding: 'UTF-8')
+    //             ]
+    //         ])
+    //     }
+    // }
 }
