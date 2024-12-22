@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'php -v' // Example PHP build step
+                sh 'ls -ll -a' // Example PHP build step
             }
         }
     }
