@@ -59,3 +59,4 @@ tests/_support/_generated
 /gcs_data/
 
 /logs/
+!logs/.gitkeep
