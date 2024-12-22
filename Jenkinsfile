@@ -4,7 +4,9 @@ pipeline {
         stage('Preparation') {
             steps {
                 sh 'echo "TEST PREPARATION"'
-                sh 'composer install'
+                sh 'curl -sS https://getcomposer.org/installer | php' // Install Composer locally
+                sh 'mv composer.phar /usr/local/bin/composer' // Move Composer to global bin
+                sh 'composer install' // Install dependencies
             }
         }
         stage('Static Analysis') {
