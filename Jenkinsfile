@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Preparation') {
+            steps {
+                sh 'composer install'
+            }
+        }
         stage('Static Analysis') {
             parallel {
                 stage('PHPStan') {
