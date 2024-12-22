@@ -1,48 +1,5 @@
 parameters:
-    level: max
-    directories:
-        - ./
-
-    autoload_dirs:
-        - ./
-
-    excludes_analyse:
-        - vendor
-
-    ignoreErrors:
-        -  PHPStan\Rules\MethodSignatureMismatch
-
+    level: 8
     paths:
-        - ./
+        - src
 
-    scanDirectories:
-        - ./
-
-    skipPaths:
-        - vendor
-
-    symfony:
-        checkAnnotations: true
-        validAnnotationNames:
-            - @Required
-            - @Symfony\Component\Validator\Constraints\NotNull
-            - @Symfony\Component\Validator\Constraints\Assert
-
-    bootstrap: ./vendor/autoload.php
-
-    showErrors: false
-
-    memoryLimit: 512M
-
-    errorLevel: 6
-
-    errorHandler:
-        errorReporting: -1
-
-    autoload_files:
-        - ./vendor/autoload.php
-
-    stats: false
-
-includes:
-    - vendor/phpstan/phpstan/phpstan.neon.dist

@@ -13,7 +13,7 @@ pipeline {
                     steps {
                         sh 'pwd'  // Check current directory
                         sh 'ls -l' // Check if vendor/bin/phpstan exists
-                        sh 'vendor/bin/phpstan analyse --error-format=checkstyle --no-progress -n . > logs/phpstan.checkstyle.xml'
+                        sh 'vendor/bin/phpstan analyze -c phpstan.neon --error-format=checkstyle --no-progress -n . > logs/phpstan.checkstyle.xml'
                     }
                 }
             }

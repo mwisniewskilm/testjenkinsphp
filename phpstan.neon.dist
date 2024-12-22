@@ -1,0 +1,3 @@
+# phpstan.neon.dist (empty or minimal configuration)
+includes:
+    - phpstan.neon
