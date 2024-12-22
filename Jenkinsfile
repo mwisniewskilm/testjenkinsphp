@@ -10,6 +10,8 @@ pipeline {
             parallel {
                 stage('PHPStan') {
                     steps {
+                        sh 'pwd'  // Check current directory
+                        sh 'ls -l' // Check if vendor/bin/phpstan exists
                         sh 'vendor/bin/phpstan analyse --error-format=checkstyle --no-progress -n . > logs/phpstan.checkstyle.xml'
                     }
                 }
