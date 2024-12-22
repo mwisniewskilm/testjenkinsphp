@@ -4,6 +4,7 @@ pipeline {
         stage('Preparation') {
             steps {
                 sh 'echo "TEST PREPARATION"'
+                sh 'composer install'
             }
         }
         stage('Static Analysis') {
