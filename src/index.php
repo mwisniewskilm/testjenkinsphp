@@ -3,4 +3,6 @@
 echo 'test';
 
 $test = null;
-echo $test->getName();
+if($test == 0){
+	echo "zero";
+}
