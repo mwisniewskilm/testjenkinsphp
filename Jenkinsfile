@@ -27,18 +27,18 @@ pipeline {
         }
     }
 
-    // post {
-    //     always {
-    //         recordIssues([
-    //             sourceCodeEncoding: 'UTF-8',
-    //             enabledForFailure: true,
-    //             aggregatingResults: true,
-    //             blameDisabled: true,
-    //             referenceJobName: "testjenkinsphp/main",
-    //             tools: [
-    //                 phpStan(id: 'phpstan', name: 'PHPStan', pattern: 'logs/phpstan.checkstyle.xml', reportEncoding: 'UTF-8')
-    //             ]
-    //         ])
-    //     }
-    // }
+    post {
+        always {
+            recordIssues([
+                sourceCodeEncoding: 'UTF-8',
+                enabledForFailure: true,
+                aggregatingResults: true,
+                blameDisabled: true,
+                referenceJobName: "testjenkinsphp/main",
+                tools: [
+                    phpStan(id: 'phpstan', name: 'PHPStan', pattern: 'logs/phpstan.checkstyle.xml', reportEncoding: 'UTF-8')
+                ]
+            ])
+        }
+    }
 }
